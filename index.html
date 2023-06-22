@@ -1,0 +1,319 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .mainarea{
+				display:flex;
+				justify-content:space-between;
+                background-color: #fff;
+			}
+			.editors,.output{
+				width:100%;
+                height: 300px;
+			}
+			textarea{
+			width:100%;
+			min-height:90%;
+            overflow:scroll;
+			padding: 10px 20px;
+            border: 0;
+            outline: 0;
+			font-size:x-large;
+            background-color: #111111;
+            color: #fff;
+			}
+			
+			#code{
+			width:100%;
+			height:44vh;
+            background-color: #fff;
+            border: 0;
+            outline: 0;
+			}
+			body{
+            background: #000;
+			}
+			h2{
+            text-align: center;
+			color:#fff;		 
+            background-color: rgb(35, 36, 35);
+            font-size: 2rem;
+			}
+        .header{
+                background-color: #000;
+                height: 9rem;
+                width: auto;
+            }
+            #logo{
+                width: 5rem;
+                height: 5rem;
+                background: transparent;
+            }
+            h7{
+                position: relative;
+                margin: 1rem;
+                padding-right: 76%;
+                font-size: 4rem;
+                background-color: transparent;
+                color: #fff;
+            }
+            .box{
+                position: relative;
+                width: 15rem;
+                height: 15rem;
+                left: 82%;
+                bottom: 7vh ;
+            }
+            .dropdown{
+                position: relative;
+                width: 100%;
+                height: 20%;
+                background: rgb(35, 36, 35);
+                color: #fff;
+                font-size: 2.2rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+            .dropdown .left-icon ,
+            .dropdown .right-icon{
+                position: relative;
+                display: inline-block;
+                width: 1.7rem;
+                height: 0.5rem;  
+                background:#fff;
+               border-radius: 100rem;
+            }
+            .dropdown .left-icon {
+                left: 7px;
+                transform:rotate(45deg);
+
+            }
+            .dropdown.active .left-icon{
+                transform: rotate(135deg);
+            } 
+            .dropdown .right-icon {
+                transform:rotate(-45deg);      
+            }
+            .dropdown.active .right-icon{
+                transform: rotate(-135deg);
+            } 
+            .dropdown .items{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 5rem;
+                background: #000;
+                margin-top: 3rem;
+                overflow: hidden;
+                transition: .5s;
+            }
+            .dropdown.active .items{
+                visibility: visible;
+            }
+            .dropdown .items a{
+                text-align: center;
+                justify-content: center;
+                position: relative;
+                left: 100%;
+                display: flex;
+                font-size: 2rem;
+                background: #111111;
+                color: #fff;
+                text-decoration: none;
+                border-radius: 5px;
+                padding: 0rem 1.5rem;
+                margin-top: 0.25rem;
+                transition: .5s;
+                transition-delay:calc(60ms*var(--i)) ;
+            }
+            .dropdown.active .items a{
+                left: 0;
+            }
+            html{
+                font-size: 10px;
+            }
+            @media(max-width:1300px){
+                html{
+                    font-size: 52%;
+                }
+                .header{
+                   
+                    height: 16.5vh;
+                    width:  100vw;
+                }
+            }
+            @media(max-width:1187px){
+                html{
+                    font-size: 51%;
+                }
+                .header{
+                    height: 16vh;
+                    width:  100vw;
+                }
+            }
+            @media(max-width:1163px){
+                html{
+                    font-size: 50%;
+                }
+                .header{
+                    height: 15.5vh;
+                    width:  100vw;
+                }
+            }
+            @media(max-width:1140px){
+                html{
+                    font-size: 49%;
+                }
+                .header{
+                    height: 15vh;
+                    width:  100vw;
+                }
+            }
+            @media(max-width:1116px){
+                html{
+                    font-size: 48%;
+                }
+                .header{
+                    height: 14.7vh;
+                    width:  100vw;
+                }
+            }
+            @media(max-width:1094px){
+                html{
+                    font-size: 47%;
+                }
+                .header{
+                    height: 14.2vh;
+                    width:  100vw;
+                }
+            }
+            @media(max-width:1071px){
+                html{
+                    font-size: 46%;
+                }
+                .header{
+                    height: 14vh;
+                    width:  100vw;
+                }
+            }
+            @media(max-width:1047px){
+                html{
+                    font-size: 45%;
+                }
+                .header{
+                    height: 13vh;
+                    width:  100vw;
+                }
+            }
+            @media(max-width:1000px){
+                html{
+                    font-size: 43%;
+                }
+                .header{
+                    height: 12vh;
+                    width:  100vw;
+                }
+            }
+            @media(max-width:976px){
+                html{
+                    font-size: 42%;
+                }
+                .header{
+                    height: 12vh;
+                    width:  100vw;
+                }
+            }
+            @media(max-width:750px){
+                html{
+                    font-size: 40%;
+                }
+                .header{
+                    height: 11vh;
+                    width:  100vw;
+                }
+            }
+            @media(max-width:400px){
+                html{
+                    font-size: 30%;
+                }
+                .header{
+                    height: 9vh;
+                    width:  100vw;
+                }
+            }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="logo.jpg" id="logo">
+      <h7>Web Code Editor</h7>
+      <div class="box">
+        <div class="dropdown">View
+            <span class="left-icon"></span>
+            <span class="right-icon"></span>
+            <div class="items">
+                <a href="index2.html" style="--i:1"><span></span>Horizontal</a>
+                <a href="index.html"style="--i:2"><span></span>Vertical</a>
+            </div>
+        </div>
+      </div>
+      </div>
+      <div class="mainarea">
+        <div class="editors">
+            <h2><i class="fa-brands fa-html5"></i>&nbsp&nbsp HTML</h2>
+            <textarea id="html" placeholder="HTML"></textarea>
+        </div>
+        <div class="editors">
+            <h2><i class="fa-brands fa-css3-alt"></i>&nbsp&nbsp CSS</h2>			
+            <textarea id="css" placeholder="CSS"></textarea>
+        </div>
+        <div class="editors">
+        <h2><i class="fa-brands fa-js"></i>&nbsp&nbsp JS</h2>
+            <textarea id="js" placeholder="JS"></textarea>
+        </div>
+    </div>
+    <div class="output">
+        <h2>OUTPUT</h2>
+    <iframe id="code"></iframe>
+    </div>
+</body>
+
+    <script>
+        function initialise(){
+            var html=document.getElementById("html");
+            var css=document.getElementById("css");
+            var js=document.getElementById("js");
+            var code=document.getElementById("code").contentWindow.document;
+            
+             
+            document.body.onkeyup=function(){
+                code.open();
+                var content=html.value+"<style>"+css.value+"</style><script>"+js.value+"<\/script>";
+                code.writeln(content);
+                code.close();
+            }
+        }
+        initialise();
+
+        const dropdown=document.querySelector('.dropdown');
+        dropdown.addEventListener('click',() =>{
+            dropdown.classList.toggle('active');
+        
+        });
+    </script>
+</body>
+</html>
